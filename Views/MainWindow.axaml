@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Zav_projekt.Views.MainWindow"
+        Width="800"
+        Height="600"
+        x:CompileBindings="False">
+
+    <StackPanel Margin="20">
+
+        <TextBlock Text="Recipes"
+                   FontSize="24"
+                   FontWeight="Bold"/>
+
+        <TextBox Text="{Binding Name}" Watermark="Name"/>
+        <TextBox Text="{Binding Description}" Watermark="Description"/>
+        <TextBox Text="{Binding CategoryId}" Watermark="CategoryId"/>
+
+        <StackPanel Orientation="Horizontal" Spacing="5">
+            <Button Content="Add" Command="{Binding AddCommand}"/>
+            <Button Content="Update" Command="{Binding UpdateCommand}"/>
+            <Button Content="Delete" Command="{Binding DeleteCommand}"/>
+        </StackPanel>
+
+        <ListBox ItemsSource="{Binding Recipes}"
+                 SelectedItem="{Binding SelectedRecipe}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+    </StackPanel>
+
+</Window>

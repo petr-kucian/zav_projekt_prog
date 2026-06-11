@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Zav_projekt.Views.RecipesView"
+             x:CompileBindings="False">
+
+    <StackPanel Margin="20" Spacing="8">
+
+        <TextBox Text="{Binding Name}" />
+        <TextBox Text="{Binding Description}" />
+        <TextBox Text="{Binding CategoryId}" />
+
+        <Button Content="Add"
+                Command="{Binding AddCommand}" />
+
+        <Button Content="Update"
+                Command="{Binding UpdateCommand}" />
+
+        <Button Content="Delete"
+                Command="{Binding DeleteCommand}" />
+
+        <ListBox ItemsSource="{Binding Recipes}"
+                 SelectedItem="{Binding SelectedRecipe}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+    </StackPanel>
+
+</UserControl>
